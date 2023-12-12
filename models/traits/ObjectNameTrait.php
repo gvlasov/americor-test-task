@@ -63,4 +63,14 @@ trait ObjectNameTrait
         }
         return null;
     }
+
+    public static function getObjectRelationNames()
+    {
+        return array_map(
+            function($classname) {
+                return self::getObjectByTableClassName($classname);
+            },
+            self::$classes
+        );
+    }
 }
